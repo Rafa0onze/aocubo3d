@@ -26,7 +26,8 @@
       "telephone": "+5511954313122",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rua Limbani, 86",`n        "addressLocality": "São Paulo",`n        "addressRegion": "SP",
+        "streetAddress": "Rua Limbani, 86",
+        "addressLocality": "São Paulo",
         "addressRegion": "SP",
         "addressCountry": "BR"
       },
@@ -219,7 +220,7 @@
                 </div>
 
                 <!-- MENU MOBILE TRIGGER -->
-                <button id="mobile-menu-btn" class="md:hidden text-navy p-2 rounded-lg hover:bg-slate-100 focus:outline-none" aria-label="Abrir Menu">
+                <button id="mobile-menu-btn" class="md:hidden text-navy p-2 rounded-lg hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange" aria-label="Abrir Menu">
                     <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
                 </button>
             </div>
@@ -345,7 +346,7 @@
                     </span>
                     <h2 class="text-2xl sm:text-4xl font-black text-navy">Categorias de Impressão 3D</h2>
                     <p class="text-slate-600 max-w-xl mx-auto text-sm font-medium">
-                        Veja os principais tipos de itens produzidos localmente para pessoas físicas e empresas com fotos reais de entregas.
+                        Veja exemplos de peças que podemos criar para você.
                     </p>
                 </div>
 
@@ -460,7 +461,7 @@
                             </div>
                         </div>
                         <div class="p-5 pt-0">
-                            <button onclick="selecionarEIrParaSimulador('Peça Sob Medida')" 
+                            <button onclick="selecionarEIrParaSimulador('Peça Sob Medida'); document.getElementById('sim-notes-input').value = 'Gostaria de cotar um letreiro personalizado.'" 
                                     class="w-full inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-orange hover:text-white text-navy font-bold text-xs px-4 py-3 rounded-xl transition-colors">
                                 <span>COTAR LETREIRO</span>
                                 <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -497,7 +498,7 @@
                             </div>
                             <h3 class="font-bold text-navy text-xl">1. Envie a Referência</h3>
                             <p class="text-slate-600 text-xs leading-relaxed font-medium">
-                                Clique no botão e fale no WhatsApp. Se você já tem um arquivo 3D (.STL/.3MF) ótimo, mas se tiver apenas uma foto ou desenho, serve perfeitamente!
+                                Chame a equipe pelo WhatsApp. Uma foto ou desenho já ajuda a explicar o que você gostaria de criar.
                             </p>
                         </div>
                     </div>
@@ -659,7 +660,7 @@
                             <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider">
                                 📝 Observações ou Medidas (Opcional)
                             </label>
-                            <textarea id="sim-notes-input" rows="2" placeholder="Ex: Desejo 10 chaveiros na cor preta, tamanho de 5cm cada." class="w-full bg-navy border border-white/20 rounded-xl p-3 text-white text-xs placeholder-slate-400 focus:outline-none focus:border-orange font-medium resize-none"></textarea>
+                            <textarea id="sim-notes-input" rows="2" placeholder="Ex: Desejo 10 chaveiros na cor preta, tamanho de 5cm cada." class="w-full bg-navy border border-white/20 rounded-xl p-3 text-white text-xs placeholder-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange focus:border-orange font-medium resize-none"></textarea>
                         </div>
 
                     </div>
@@ -716,29 +717,29 @@
                     
                     <!-- FAQ 1: SOBRE A TEXTURA DE CAMADAS (OBRIGATÓRIA) -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-100">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Como é o acabamento de uma peça impressa em 3D?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3 font-medium">
-                            Diferente de objetos plásticos fabricados em moldes industriais tradicionais, a impressão 3D constrói as peças camada por camada. Por essa razão, as linhas finas de deposição do material são uma característica natural do processo e ficam levemente visíveis ao olhar e ao toque, conferindo um visual moderno e personalizado.
+                            A superfície pode ter linhas bem finas, próprias do processo de impressão. A equipe explica as opções de acabamento antes de produzir sua peça.
                         </div>
                     </div>
 
                     <!-- FAQ 2 -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-200">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Preciso ter um arquivo 3D pronto para fazer orçamento?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
                         <div class="faq-answer px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3 font-medium">
-                            Não é obrigatório. Se você já tem um arquivo nos formatos .STL ou .3MF é ótimo, mas se tiver apenas uma foto de referência, print da internet ou um desenho com medidas, pode enviar normalmente no WhatsApp que te auxiliamos.
+                            Não precisa ter um modelo pronto. Envie uma foto, um desenho ou uma referência; a equipe ajuda a definir os detalhes.
                         </div>
                     </div>
 
                     <!-- FAQ 3 -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-300">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Existe quantidade mínima por pedido?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
@@ -749,7 +750,7 @@
 
                     <!-- FAQ 4 -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-400">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Como funciona a retirada ou envio local?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
@@ -782,7 +783,7 @@
             </div>
 
             <div>
-                <h4 class="text-white font-bold uppercase tracking-wider mb-3">Navegação</h4>
+                <h3 class="text-white font-bold uppercase tracking-wider mb-3">Navegação</h3>
                 <ul class="space-y-2 font-medium">
                     <li><a href="#produtos" class="hover:text-orange transition-colors">Categorias de Produtos</a></li>
                     <li><a href="#como-funciona" class="hover:text-orange transition-colors">Como Funciona</a></li>
@@ -792,11 +793,11 @@
             </div>
 
             <div>
-                <h4 class="text-white font-bold uppercase tracking-wider mb-3">Contato &amp; Localização</h4>
+                <h3 class="text-white font-bold uppercase tracking-wider mb-3">Contato &amp; Localização</h3>
                 <ul class="space-y-2 font-medium">
                     <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-wa"></i> Atendimento Direto via WhatsApp</li>
                     <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-orange"></i> Segunda a Sexta: 08h às 18h</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-orange"></i> São Paulo - SP</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-orange"></i> Rua Limbani, 86 — Campo Limpo, São Paulo - SP</li>
                 </ul>
             </div>
 
