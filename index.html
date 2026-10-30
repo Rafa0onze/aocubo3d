@@ -220,7 +220,7 @@
                 </div>
 
                 <!-- MENU MOBILE TRIGGER -->
-                <button id="mobile-menu-btn" class="md:hidden text-navy p-2 rounded-lg hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange" aria-label="Abrir Menu">
+                <button id="mobile-menu-btn" class="md:hidden text-navy p-2 rounded-lg hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
                 </button>
             </div>
@@ -553,16 +553,16 @@
                     
                     <div class="flex flex-wrap justify-center gap-2 p-1.5 bg-slate-200/80 rounded-2xl">
                         <button onclick="mudarAbaMaterial('pla')" id="tab-btn-pla" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-white text-navy shadow-sm">
-                            <i class="fa-solid fa-palette mr-1.5 text-emerald-600"></i> PLA
+                            <i class="fa-solid fa-palette mr-1.5 text-emerald-600"></i> Leve
                         </button>
                         <button onclick="mudarAbaMaterial('petg')" id="tab-btn-petg" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-slate-600 hover:text-navy">
-                            <i class="fa-solid fa-shield-halved mr-1.5 text-blue-600"></i> PETG
+                            <i class="fa-solid fa-shield-halved mr-1.5 text-blue-600"></i> Uso diário
                         </button>
                         <button onclick="mudarAbaMaterial('abs')" id="tab-btn-abs" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-slate-600 hover:text-navy">
-                            <i class="fa-solid fa-fire mr-1.5 text-red-600"></i> ABS
+                            <i class="fa-solid fa-fire mr-1.5 text-red-600"></i> Resistente ao calor
                         </button>
                         <button onclick="mudarAbaMaterial('tpu')" id="tab-btn-tpu" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-slate-600 hover:text-navy">
-                            <i class="fa-solid fa-recycle mr-1.5 text-purple-600"></i> TPU Flex
+                            <i class="fa-solid fa-recycle mr-1.5 text-purple-600"></i> Flexível
                         </button>
                     </div>
 
@@ -843,7 +843,10 @@
             if (mobileBtn && mobileMenu) {
                 mobileBtn.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
-                    menuIcon.className = mobileMenu.classList.contains('hidden') ? 'fa-solid fa-bars text-2xl' : 'fa-solid fa-xmark text-2xl';
+                    const isOpen = !mobileMenu.classList.contains('hidden');
+                    mobileBtn.setAttribute('aria-expanded', String(isOpen));
+                    mobileBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+                    menuIcon.className = isOpen ? 'fa-solid fa-xmark text-2xl' : 'fa-solid fa-bars text-2xl';
                 });
 
                 document.querySelectorAll('.mobile-link').forEach(link => {
@@ -869,40 +872,40 @@
             // 4. GUIA INTERATIVO DE MATERIAIS (DADOS E TROCA DE ABAS)
             const materiaisData = {
                 pla: {
-                    titulo: "PLA (Polímero Biodegradável / Decorativo)",
+                    titulo: "Leve e decorativo",
                     corBadge: "bg-emerald-100 text-emerald-800 border-emerald-300",
                     sensacao: "Rígido com superfície limpa e lisa",
-                    descricao: "É o material mais popular e versátil da impressão 3D. Possui acabamento impecável com grande riqueza de detalhes e ampla variedade de cores.",
+                    descricao: "Uma opção leve, indicada para enfeites, lembranças e peças decorativas.",
                     resistencia: 70,
                     flexibilidade: 20,
                     acabamento: 95,
                     usos: ["Troféus e Medalhas", "Brinquedos e Articulados", "Miniaturas e Maquetes", "Itens Decorativos"]
                 },
                 petg: {
-                    titulo: "PETG (Polímero de Alta Tenacidade)",
+                    titulo: "Para uso diário",
                     corBadge: "bg-blue-100 text-blue-800 border-blue-300",
                     sensacao: "Resistente a quedas e ao uso diário",
-                    descricao: "Combina a facilidade visual do PLA com a durabilidade mecânica do ABS. Ótima resistência ao impacto, umidade e raios solares.",
+                    descricao: "Uma opção resistente para objetos que serão manuseados com frequência.",
                     resistencia: 88,
                     flexibilidade: 45,
                     acabamento: 85,
                     usos: ["Chaveiros em Lote", "Brindes Corporativos", "Organizadores", "Peças de Uso Diário"]
                 },
                 abs: {
-                    titulo: "ABS (Termoplástico Técnico Durável)",
+                    titulo: "Mais resistente ao calor",
                     corBadge: "bg-red-100 text-red-800 border-red-300",
                     sensacao: "Rígido e tolerante a temperaturas mais altas",
-                    descricao: "Material consagrado em componentes técnicos. Possui maior resistência térmica e mecânica, sendo ideal para peças funcionais.",
+                    descricao: "Pode ser indicado para alguns objetos que ficam em ambientes mais quentes. A equipe ajuda a avaliar cada caso.",
                     resistencia: 92,
                     flexibilidade: 30,
                     acabamento: 80,
                     usos: ["Peças de Reposição", "Engrenagens e Suportes", "Invólucros Protegidos", "Componentes Mecânicos"]
                 },
                 tpu: {
-                    titulo: "TPU (Elastômero Flexível Emborrachado)",
+                    titulo: "Flexível e macio",
                     corBadge: "bg-purple-100 text-purple-800 border-purple-300",
                     sensacao: "Flexível e totalmente dobrável",
-                    descricao: "Plástico especial com propriedade emborrachada. Absorve impactos e pode ser deformado sem quebrar, retornando à sua forma original.",
+                    descricao: "Uma opção maleável, usada em capas e peças que precisam dobrar.",
                     resistencia: 95,
                     flexibilidade: 98,
                     acabamento: 75,
