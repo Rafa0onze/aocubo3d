@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO METATAGS -->
+    <title>Ao Cubo 3D | Impressão 3D Local - Troféus, Chaveiros e Peças Personalizadas</title>
+    <meta name="description" content="Serviço local de impressão 3D sob demanda em São Paulo. Troféus exclusivos, chaveiros em lote, brindes corporativos e peças sob medida. Faça seu orçamento instantâneo pelo WhatsApp!">
+    <meta name="keywords" content="impressão 3D local, troféus 3D personalizados, chaveiros em lote 3D, brindes corporativos, modelos 3D, orçamento impressão 3D, São Paulo 3D">
+    <meta name="robots" content="index, follow">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Ao Cubo 3D | Impressão 3D Local sob Demanda">
+    <meta property="og:description" content="Transforme ideias em produtos reais com impressão 3D local. Cotação rápida direto no WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- SCHEMA.ORG LOCAL BUSINESS JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Ao Cubo 3D",
+      "description": "Serviço local de impressão 3D para troféus, chaveiros corporativos em lote, brindes e peças sob medida.",
+      "telephone": "+5511999999999",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONTAWESOME ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- GOOGLE FONTS (INTER) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0D223A',
+                            dark: '#071321',
+                            light: '#18385C',
+                            surface: '#122B48'
+                        },
+                        orange: {
+                            DEFAULT: '#F15A24',
+                            hover: '#D64613',
+                            light: '#FFF2ED',
+                            glow: 'rgba(241, 90, 36, 0.35)'
+                        },
+                        wa: {
+                            DEFAULT: '#25D366',
+                            hover: '#1EBE5A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #0D223A;
+            overflow-x: hidden;
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #071321;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F15A24;
+            border-radius: 4px;
+        }
+
+        /* NAVBAR SCROLLED STATE */
+        header.scrolled {
+            box-shadow: 0 10px 25px -5px rgba(13, 34, 58, 0.12), 0 8px 10px -6px rgba(13, 34, 58, 0.08);
+            background-color: rgba(255, 255, 255, 0.98);
+            border-bottom-color: rgba(241, 90, 36, 0.3);
+            height: 4.5rem;
+        }
+
+        /* REVEAL ON SCROLL ANIMATIONS */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* STAGGERED DELAYS FOR CARDS & STEPS */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* MATERIAL BAR PROGRESS ANIMATION */
+        .progress-bar-fill {
+            width: 0% !important;
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-visible .progress-bar-fill {
+            width: var(--target-width) !important;
+        }
+
+        /* GLOW & PULSE EFFECTS */
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(241, 90, 36, 0.35);
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(241, 90, 36, 0.65);
+        }
+
+        /* FAQ SLIDE ANIMATION */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, padding 0.3s ease;
+            opacity: 0;
+        }
+        .faq-answer.open {
+            max-height: 300px;
+            opacity: 1;
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease, padding 0.3s ease;
+        }
+
+        /* TOAST NOTIFICATION */
+        #toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- TOAST NOTIFICATION FOR COPY ACTION -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-navy-dark text-white px-5 py-3 rounded-xl border border-orange shadow-2xl flex items-center gap-3 font-semibold text-xs sm:text-sm">
+        <i class="fa-solid fa-circle-check text-wa text-lg"></i>
+        <span id="toast-message">Mensagem copiada com sucesso!</span>
+    </div>
+
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 transition-all duration-300" id="header-inner">
+                
+                <!-- LOGO AO CUBO 3D -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center p-1.5 shadow-md border border-orange/40 group-hover:border-orange transition-colors">
+                        <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M85 20 H115 V30 L105 50 H95 L85 30 Z" fill="#FFFFFF" />
+                            <path d="M96 50 H104 V62 H96 Z" fill="#F15A24" />
+                            <path d="M100 68 L150 90 L100 112 L50 90 Z" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linejoin="round"/>
+                            <path d="M50 90 V145 L100 168 V112 Z" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linejoin="round"/>
+                            <path d="M100 112 V168 L150 145 V90 Z" fill="none" stroke="#F15A24" stroke-width="10" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-2xl tracking-tight text-navy leading-none">AO CUBO <span class="text-orange">3D</span></span>
+                        <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">Impressão 3D Local</span>
+                    </div>
+                </a>
+
+                <!-- NAV DESKTOP -->
+                <nav class="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-wider text-navy">
+                    <a href="#produtos" class="hover:text-orange transition-colors">Produtos</a>
+                    <a href="#como-funciona" class="hover:text-orange transition-colors">Como Funciona</a>
+                    <a href="#materiais" class="hover:text-orange transition-colors">Materiais</a>
+                    <a href="#simulador" class="hover:text-orange transition-colors">Orçamento</a>
+                    <a href="#faq" class="hover:text-orange transition-colors">Dúvidas</a>
+                </nav>
+
+                <!-- BOTÃO CTA HEADER -->
+                <div class="hidden sm:flex items-center">
+                    <a href="#simulador" 
+                       class="inline-flex items-center gap-2 bg-orange hover:bg-orange-hover text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-md hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>PEDIR ORÇAMENTO</span>
+                    </a>
+                </div>
+
+                <!-- MENU MOBILE TRIGGER -->
+                <button id="mobile-menu-btn" class="md:hidden text-navy p-2 rounded-lg hover:bg-slate-100 focus:outline-none" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MENU MOBILE DROPDOWN -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy text-white px-4 pt-3 pb-6 border-b-2 border-orange space-y-3">
+            <a href="#produtos" class="mobile-link block py-2 px-3 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-navy-surface">Produtos &amp; Exemplos</a>
+            <a href="#como-funciona" class="mobile-link block py-2 px-3 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-navy-surface">Como Funciona</a>
+            <a href="#materiais" class="mobile-link block py-2 px-3 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-navy-surface">Materiais Disponíveis</a>
+            <a href="#simulador" class="mobile-link block py-2 px-3 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-navy-surface">Simulador de Pedido</a>
+            <a href="#faq" class="mobile-link block py-2 px-3 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-navy-surface">Dúvidas Frequentes</a>
+            <div class="pt-2">
+                <a href="#simulador" class="mobile-link w-full flex items-center justify-center gap-2 bg-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>SOLICITAR PELO WHATSAPP</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- HERO SECTION COM FOTO REAL EM ALTA RESOLUÇÃO (SIMULADOR DE CAMADAS REMOVIDO) -->
+        <section id="hero-section" class="py-12 sm:py-24 bg-navy text-white relative overflow-hidden">
+            <!-- BACKGROUND GLOWS -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-navy-light/40 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- TEXTO HERO -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal-item">
+                        
+                        <div class="inline-flex items-center gap-2 bg-navy-surface border border-white/20 text-orange font-bold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-lg shadow-sm">
+                            <i class="fa-solid fa-location-dot"></i> ATENDIMENTO E PRODUÇÃO LOCAL EM SÃO PAULO
+                        </div>
+
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-white">
+                            Sua ideia ou projeto impresso em 3D com <span class="text-orange">agilidade local</span>.
+                        </h1>
+
+                        <p class="text-slate-300 text-base sm:text-lg font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Troféus exclusivos, chaveiros em lote, brindes corporativos, brinquedos e peças sob medida. Envie sua foto, desenho ou arquivo 3D para um orçamento direto no WhatsApp.
+                        </p>
+
+                        <!-- BOTOES DE AÇÃO -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#simulador" 
+                               class="btn-glow w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-orange hover:bg-orange-hover text-white font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>ORÇAR NO WHATSAPP</span>
+                            </a>
+                            <a href="#produtos" 
+                               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-wider px-6 py-4 rounded-xl transition-all border border-white/20">
+                                <i class="fa-solid fa-border-all text-orange"></i>
+                                <span>VER PRODUTOS</span>
+                            </a>
+                        </div>
+
+                        <!-- DESTAQUES RÁPIDOS -->
+                        <div class="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-left">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-wa text-base"></i>
+                                <span class="text-xs font-semibold text-slate-300">Sem pedido mínimo</span>
+                            </div>
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-check text-wa text-base"></i>
+                                <span class="text-xs font-semibold text-slate-300">Aceitamos foto de referência</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 col-span-2 sm:col-span-1">
+                                <i class="fa-solid fa-check text-wa text-base"></i>
+                                <span class="text-xs font-semibold text-slate-300">Atendimento direto local</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- FOTO REAL EM ALTA RESOLUÇÃO DA IMPRESSORA 3D EM AÇÃO -->
+                    <div class="lg:col-span-5 reveal-item delay-200">
+                        <div class="relative bg-navy-surface border border-white/20 rounded-2xl p-3 shadow-2xl overflow-hidden group">
+                            
+                            <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-900 border border-white/10">
+                                <img src="impressora 3d.png" 
+                                     alt="Impressora 3D em ação produzindo peça com precisão" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent pointer-events-none"></div>
+
+                                <div class="absolute top-3 left-3 bg-navy-dark/90 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg border border-white/20 flex items-center gap-2 shadow-lg">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-wa animate-pulse"></span>
+                                    PRODUÇÃO SOB DEMANDA
+                                </div>
+
+                                <div class="absolute bottom-3 left-3 right-3 text-white flex items-center justify-between">
+                                    <div>
+                                        <p class="text-xs font-bold flex items-center gap-1.5">
+                                            <i class="fa-solid fa-cube text-orange"></i> Impressão de alta fidelidade
+                                        </p>
+                                        <p class="text-[10px] text-slate-300">Transformamos sua referência ou modelo em objeto real.</p>
+                                    </div>
+                                    <img src="impressao 3d 2.avif" 
+                                         alt="Detalhe técnico 3D" 
+                                         class="w-12 h-12 rounded-lg border border-white/30 object-cover shadow-md hidden sm:block">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERIA DE PRODUTOS E EXEMPLOS REAIS COM ANIMAÇÕES NA ROLAGEM -->
+        <section id="produtos" class="py-12 sm:py-20 bg-slate-50 border-b border-slate-200">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center space-y-3 mb-12 reveal-item">
+                    <span class="text-orange font-bold text-xs uppercase tracking-widest bg-orange-light px-3.5 py-1 rounded-md border border-orange/20">
+                        O Que Fabricamos
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-navy">Categorias de Impressão 3D</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto text-sm font-medium">
+                        Veja os principais tipos de itens produzidos localmente para pessoas físicas e empresas com fotos reais de entregas.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- CARD 1: TROFÉUS -->
+                    <div class="bg-white border border-slate-200 hover:border-orange rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group reveal-item delay-100">
+                        <div>
+                            <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+                                <img src="trofeu.jpg" 
+                                     alt="Troféu exclusivo impresso em 3D" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     loading="lazy">
+                                <span class="absolute top-3 left-3 bg-navy text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                                    Exclusivos
+                                </span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <h3 class="font-bold text-navy text-lg group-hover:text-orange transition-colors">Troféus e Premiações</h3>
+                                <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                    Design personalizado para campeonatos esportivos, marcas, canais e reconhecimentos corporativos sob medida.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <button onclick="selecionarEIrParaSimulador('Troféu ou Premiação')" 
+                                    class="w-full inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-orange hover:text-white text-navy font-bold text-xs px-4 py-3 rounded-xl transition-colors">
+                                <span>COTAR TROFÉU</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: CHAVEIROS E BRINDES -->
+                    <div class="bg-white border border-slate-200 hover:border-orange rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group reveal-item delay-200">
+                        <div>
+                            <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+                                <img src="chaveiro.webp" 
+                                     alt="Chaveiros corporativos e articulados impressos em 3D" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     loading="lazy">
+                                <span class="absolute top-3 left-3 bg-orange text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                                    Em Lote
+                                </span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <h3 class="font-bold text-navy text-lg group-hover:text-orange transition-colors">Chaveiros e Brindes</h3>
+                                <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                    Chaveiros articulados coloridos, com logotipo da sua marca, mascotes e lembrancinhas exclusivas em lote.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <button onclick="selecionarEIrParaSimulador('Chaveiros ou Brindes')" 
+                                    class="w-full inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-orange hover:text-white text-navy font-bold text-xs px-4 py-3 rounded-xl transition-colors">
+                                <span>COTAR BRINDES</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: BRINQUEDOS E COLECIONÁVEIS -->
+                    <div class="bg-white border border-slate-200 hover:border-orange rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group reveal-item delay-300">
+                        <div>
+                            <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+                                <img src="brinquedo.jpg" 
+                                     alt="Brinquedos e figuras articuladas em 3D" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     loading="lazy">
+                                <span class="absolute top-3 left-3 bg-navy text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                                    Articulados
+                                </span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <h3 class="font-bold text-navy text-lg group-hover:text-orange transition-colors">Brinquedos e Articulados</h3>
+                                <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                    Modelos articulados criativos, brinquedos coloridos, figuras de ação e colecionáveis sob medida.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <button onclick="selecionarEIrParaSimulador('Brinquedo ou Colecionável')" 
+                                    class="w-full inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-orange hover:text-white text-navy font-bold text-xs px-4 py-3 rounded-xl transition-colors">
+                                <span>COTAR BRINQUEDO</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4: LETREIROS & DECORATIVOS SOB MEDIDA -->
+                    <div class="bg-white border border-slate-200 hover:border-orange rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group reveal-item delay-400">
+                        <div>
+                            <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+                                <img src="letreiro.jpg" 
+                                     alt="Letreiros e nomes decorativos impressos em 3D" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     loading="lazy">
+                                <span class="absolute top-3 left-3 bg-slate-800 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                                    Sob Medida
+                                </span>
+                                <div class="absolute bottom-2 right-2 bg-white/95 rounded-lg p-1 shadow-md border border-slate-200">
+                                    <img src="letreiro.webp" 
+                                         alt="Exemplo Letreiro Sofia" 
+                                         class="w-8 h-8 object-cover rounded">
+                                </div>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <h3 class="font-bold text-navy text-lg group-hover:text-orange transition-colors">Letreiros &amp; Decorativos</h3>
+                                <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                    Nomes personalizados em 3D, letreiros para quartos infantis, decoração de eventos, escritórios e peças exclusivas.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <button onclick="selecionarEIrParaSimulador('Peça Sob Medida')" 
+                                    class="w-full inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-orange hover:text-white text-navy font-bold text-xs px-4 py-3 rounded-xl transition-colors">
+                                <span>COTAR LETREIRO</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ETAPAS DO PEDIDO COM ANIMACAO NA ROLAGEM DA LINHA -->
+        <section id="como-funciona" class="py-12 sm:py-20 bg-white border-b border-slate-200">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center space-y-3 mb-14 reveal-item">
+                    <span class="text-orange font-bold text-xs uppercase tracking-widest bg-orange-light px-3.5 py-1 rounded-md border border-orange/20">
+                        Atendimento Sem Complicação
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-navy">Como Funciona o Orçamento</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto text-sm font-medium">
+                        Passo a passo transparente para transformar seu projeto em realidade.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- PASSO 1 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative hover:border-orange transition-all duration-300 reveal-item delay-100 hover:-translate-y-1">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-orange text-white font-black text-xl flex items-center justify-center shadow-md">
+                                1
+                            </div>
+                            <h3 class="font-bold text-navy text-xl">1. Envie a Referência</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                Clique no botão e fale no WhatsApp. Se você já tem um arquivo 3D (.STL/.3MF) ótimo, mas se tiver apenas uma foto ou desenho, serve perfeitamente!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PASSO 2 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative hover:border-navy transition-all duration-300 reveal-item delay-200 hover:-translate-y-1">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-navy text-white font-black text-xl flex items-center justify-center shadow-md">
+                                2
+                            </div>
+                            <h3 class="font-bold text-navy text-xl">2. Análise Técnica Direta</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                Avaliamos a quantidade de material, cor desejada e prazo estimado para te enviar um valor justo e sem surpresas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PASSO 3 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative hover:border-orange transition-all duration-300 reveal-item delay-300 hover:-translate-y-1">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-orange text-white font-black text-xl flex items-center justify-center shadow-md">
+                                3
+                            </div>
+                            <h3 class="font-bold text-navy text-xl">3. Produção &amp; Retirada</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                Produzimos com cuidado no plástico escolhido. Assim que estiver pronto, você pode retirar pessoalmente ou receber com rapidez.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VISUALIZADOR INTERATIVO DE MATERIAIS COM BARRAS DE PROGRESSO ANIMADAS NA ROLAGEM -->
+        <section id="materiais" class="py-12 sm:py-20 bg-slate-50 border-b border-slate-200">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center space-y-3 mb-12 reveal-item">
+                    <span class="text-orange font-bold text-xs uppercase tracking-widest bg-orange-light px-3.5 py-1 rounded-md border border-orange/20">
+                        Guia Prático
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-navy">Guia de Materiais Disponíveis</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto text-sm font-medium">
+                        Escolhemos o plástico ideal para o seu objetivo. Clique nas abas abaixo para ver os detalhes.
+                    </p>
+                </div>
+
+                <!-- ABAS DE NAVEGAÇÃO DE MATERIAIS -->
+                <div class="max-w-4xl mx-auto space-y-6 reveal-item delay-100">
+                    
+                    <div class="flex flex-wrap justify-center gap-2 p-1.5 bg-slate-200/80 rounded-2xl">
+                        <button onclick="mudarAbaMaterial('pla')" id="tab-btn-pla" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-white text-navy shadow-sm">
+                            <i class="fa-solid fa-palette mr-1.5 text-emerald-600"></i> PLA
+                        </button>
+                        <button onclick="mudarAbaMaterial('petg')" id="tab-btn-petg" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-slate-600 hover:text-navy">
+                            <i class="fa-solid fa-shield-halved mr-1.5 text-blue-600"></i> PETG
+                        </button>
+                        <button onclick="mudarAbaMaterial('abs')" id="tab-btn-abs" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-slate-600 hover:text-navy">
+                            <i class="fa-solid fa-fire mr-1.5 text-red-600"></i> ABS
+                        </button>
+                        <button onclick="mudarAbaMaterial('tpu')" id="tab-btn-tpu" class="mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-slate-600 hover:text-navy">
+                            <i class="fa-solid fa-recycle mr-1.5 text-purple-600"></i> TPU Flex
+                        </button>
+                    </div>
+
+                    <!-- CARD DO MATERIAL SELECIONADO -->
+                    <div id="material-card-content" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-md">
+                        <!-- CONTEÚDO DINÂMICO VIA JAVASCRIPT -->
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SIMULADOR E FORMULÁRIO INTERATIVO DE ORÇAMENTO WHATSAPP -->
+        <section id="simulador" class="py-12 sm:py-24 bg-navy text-white relative overflow-hidden">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center space-y-3 mb-12 reveal-item">
+                    <span class="bg-orange text-white font-bold text-xs uppercase tracking-widest px-3.5 py-1 rounded-md shadow-sm">
+                        Agilidade no Atendimento
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-white">Monte seu Orçamento para o WhatsApp</h2>
+                    <p class="text-slate-300 max-w-xl mx-auto text-sm font-medium">
+                        Selecione as opções abaixo para criar uma mensagem organizada e enviar direto para nossa equipe com apenas 1 clique.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-navy-surface border border-white/20 rounded-2xl p-6 sm:p-10 shadow-2xl grid lg:grid-cols-12 gap-8 items-start reveal-item delay-100">
+                    
+                    <!-- OPÇÕES DO SIMULADOR (7 COLS) -->
+                    <div class="lg:col-span-7 space-y-5">
+                        
+                        <!-- CHIPS DE TIPO -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider">
+                                🏆 Qual é o tipo de item?
+                            </label>
+                            <div class="grid grid-cols-2 gap-2" id="chip-type-group">
+                                <button type="button" onclick="setChip('type', 'Troféu ou Premiação')" class="chip-type py-2.5 px-3 rounded-xl border border-white/20 text-xs font-semibold text-left transition-all bg-orange text-white border-orange">
+                                    Troféu / Premiação
+                                </button>
+                                <button type="button" onclick="setChip('type', 'Chaveiros ou Brindes')" class="chip-type py-2.5 px-3 rounded-xl border border-white/20 text-xs font-semibold text-left transition-all hover:bg-white/10 text-slate-300">
+                                    Chaveiros em Lote
+                                </button>
+                                <button type="button" onclick="setChip('type', 'Brinquedo ou Colecionável')" class="chip-type py-2.5 px-3 rounded-xl border border-white/20 text-xs font-semibold text-left transition-all hover:bg-white/10 text-slate-300">
+                                    Brinquedo / Colecionável
+                                </button>
+                                <button type="button" onclick="setChip('type', 'Peça Sob Medida')" class="chip-type py-2.5 px-3 rounded-xl border border-white/20 text-xs font-semibold text-left transition-all hover:bg-white/10 text-slate-300">
+                                    Peça Sob Medida
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CHIPS DE QUANTIDADE -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider">
+                                📦 Quantidade desejada
+                            </label>
+                            <div class="grid grid-cols-2 gap-2" id="chip-qty-group">
+                                <button type="button" onclick="setChip('qty', '1 a 5 unidades')" class="chip-qty py-2 px-3 rounded-xl border border-white/20 text-xs font-semibold text-center transition-all bg-orange text-white border-orange">
+                                    1 a 5 unidades
+                                </button>
+                                <button type="button" onclick="setChip('qty', '6 a 20 unidades')" class="chip-qty py-2 px-3 rounded-xl border border-white/20 text-xs font-semibold text-center transition-all hover:bg-white/10 text-slate-300">
+                                    6 a 20 unidades
+                                </button>
+                                <button type="button" onclick="setChip('qty', '21 a 50 unidades')" class="chip-qty py-2 px-3 rounded-xl border border-white/20 text-xs font-semibold text-center transition-all hover:bg-white/10 text-slate-300">
+                                    21 a 50 unidades
+                                </button>
+                                <button type="button" onclick="setChip('qty', 'Mais de 50 unidades')" class="chip-qty py-2 px-3 rounded-xl border border-white/20 text-xs font-semibold text-center transition-all hover:bg-white/10 text-slate-300">
+                                    Mais de 50 un.
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CHIPS DE ARQUIVO/IMAGEM -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider">
+                                📁 Você já possui foto ou arquivo 3D?
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="chip-file-group">
+                                <button type="button" onclick="setChip('file', 'Tenho foto de referência')" class="chip-file py-2 px-2.5 rounded-xl border border-white/20 text-[11px] font-semibold text-center transition-all bg-orange text-white border-orange">
+                                    Tenho Foto
+                                </button>
+                                <button type="button" onclick="setChip('file', 'Tenho arquivo 3D')" class="chip-file py-2 px-2.5 rounded-xl border border-white/20 text-[11px] font-semibold text-center transition-all hover:bg-white/10 text-slate-300">
+                                    Tenho Arquivo 3D
+                                </button>
+                                <button type="button" onclick="setChip('file', 'Preciso de orientação')" class="chip-file py-2 px-2.5 rounded-xl border border-white/20 text-[11px] font-semibold text-center transition-all hover:bg-white/10 text-slate-300">
+                                    Preciso de Ajuda
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- OBSERVAÇÕES OPCIONAIS -->
+                        <div class="space-y-1.5">
+                            <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider">
+                                📝 Observações ou Medidas (Opcional)
+                            </label>
+                            <textarea id="sim-notes-input" rows="2" placeholder="Ex: Desejo 10 chaveiros na cor preta, tamanho de 5cm cada." class="w-full bg-navy border border-white/20 rounded-xl p-3 text-white text-xs placeholder-slate-400 focus:outline-none focus:border-orange font-medium resize-none"></textarea>
+                        </div>
+
+                    </div>
+
+                    <!-- PREVIEW E BOTOES DE AÇÃO (5 COLS) -->
+                    <div class="lg:col-span-5 bg-navy border border-white/15 rounded-xl p-5 space-y-4 flex flex-col justify-between h-full">
+                        
+                        <div>
+                            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+                                <span class="text-xs font-bold text-orange uppercase tracking-wider flex items-center gap-1.5">
+                                    <i class="fa-solid fa-message"></i> Mensagem Formatada
+                                </span>
+                                <span class="text-[10px] text-slate-400 font-mono">Status: Pronto</span>
+                            </div>
+
+                            <div id="sim-preview-box" class="bg-navy-dark p-4 rounded-lg border border-white/10 text-xs font-mono text-slate-200 leading-relaxed whitespace-pre-line min-h-[160px]">
+                                Gerando mensagem...
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 pt-2">
+                            <!-- BOTAO ENVIAR WHATSAPP -->
+                            <button id="sim-submit-btn" class="btn-glow w-full inline-flex items-center justify-center gap-3 bg-wa hover:bg-wa-hover text-white font-bold text-sm uppercase tracking-wider py-4 px-4 rounded-xl transition-all">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>ENVIAR NO WHATSAPP</span>
+                            </button>
+
+                            <!-- BOTAO COPIAR MENSAGEM -->
+                            <button id="sim-copy-btn" class="w-full inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-slate-200 font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-xl transition-all border border-white/20">
+                                <i class="fa-solid fa-copy"></i>
+                                <span>COPIAR TEXTO DA MENSAGEM</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DÚVIDAS FREQUENTES (FAQ) -->
+        <section id="faq" class="py-12 sm:py-20 bg-white border-b border-slate-200">
+            <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center space-y-3 mb-12 reveal-item">
+                    <span class="text-orange font-bold text-xs uppercase tracking-widest bg-orange-light px-3.5 py-1 rounded-md border border-orange/20">
+                        Transparência
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-navy">Perguntas Frequentes</h2>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-4">
+                    
+                    <!-- FAQ 1: SOBRE A TEXTURA DE CAMADAS (OBRIGATÓRIA) -->
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-100">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                            <span>Como é o acabamento de uma peça impressa em 3D?</span>
+                            <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3 font-medium">
+                            Diferente de objetos plásticos fabricados em moldes industriais tradicionais, a impressão 3D constrói as peças camada por camada. Por essa razão, as linhas finas de deposição do material são uma característica natural do processo e ficam levemente visíveis ao olhar e ao toque, conferindo um visual moderno e personalizado.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-200">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                            <span>Preciso ter um arquivo 3D pronto para fazer orçamento?</span>
+                            <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3 font-medium">
+                            Não é obrigatório. Se você já tem um arquivo nos formatos .STL ou .3MF é ótimo, mas se tiver apenas uma foto de referência, print da internet ou um desenho com medidas, pode enviar normalmente no WhatsApp que te auxiliamos.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-300">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                            <span>Existe quantidade mínima por pedido?</span>
+                            <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3 font-medium">
+                            Não temos quantidade mínima. Atendemos desde pedidos unitários (como um troféu ou uma peça técnica específica) até dezenas ou centenas de chaveiros e brindes em lote para eventos.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-400">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus:outline-none hover:text-orange transition-colors">
+                            <span>Como funciona a retirada ou envio local?</span>
+                            <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-5 pb-5 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-200/80 pt-3 font-medium">
+                            Assim que seu projeto é concluído, combinamos o horário para retirada direta ou organizamos o envio expresso local via portador para o seu endereço.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-navy text-slate-300 text-xs py-12 border-t border-white/10">
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            
+            <div class="space-y-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 bg-orange rounded-lg flex items-center justify-center text-white font-bold">
+                        3D
+                    </div>
+                    <span class="font-black text-lg text-white">AO CUBO <span class="text-orange">3D</span></span>
+                </div>
+                <p class="text-slate-400 leading-relaxed font-medium">
+                    Serviço local de impressão 3D para troféus, chaveiros corporativos, brindes e peças sob medida com orçamento prático no WhatsApp.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-3">Navegação</h4>
+                <ul class="space-y-2 font-medium">
+                    <li><a href="#produtos" class="hover:text-orange transition-colors">Categorias de Produtos</a></li>
+                    <li><a href="#como-funciona" class="hover:text-orange transition-colors">Como Funciona</a></li>
+                    <li><a href="#materiais" class="hover:text-orange transition-colors">Guia de Materiais</a></li>
+                    <li><a href="#simulador" class="hover:text-orange transition-colors">Simulador de Orçamento</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-3">Contato &amp; Localização</h4>
+                <ul class="space-y-2 font-medium">
+                    <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-wa"></i> Atendimento Direto via WhatsApp</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-orange"></i> Segunda a Sexta: 08h às 18h</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-orange"></i> São Paulo - SP</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-6 text-center text-slate-400 font-medium">
+            <p>&copy; 2026 Ao Cubo 3D. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE PERMANENTE DO WHATSAPP -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20impress%C3%A3o%203D." 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Falar no WhatsApp"
+       class="fixed bottom-5 right-5 z-50 bg-wa hover:bg-wa-hover text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-transform hover:scale-110 border-2 border-white/30">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- SCRIPT DE NAVEGAÇÃO, ANIMAÇÕES NA ROLAGEM, SIMULADOR E MATERIAIS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. ANIMAÇÃO NA ROLAGEM DO HEADER/NAVBAR
+            const mainHeader = document.getElementById('main-header');
+            const headerInner = document.getElementById('header-inner');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 20) {
+                    mainHeader.classList.add('scrolled');
+                    if (headerInner) headerInner.classList.replace('h-20', 'h-16');
+                } else {
+                    mainHeader.classList.remove('scrolled');
+                    if (headerInner) headerInner.classList.replace('h-16', 'h-20');
+                }
+            });
+
+            // 2. MENU MOBILE
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    menuIcon.className = mobileMenu.classList.contains('hidden') ? 'fa-solid fa-bars text-2xl' : 'fa-solid fa-xmark text-2xl';
+                });
+
+                document.querySelectorAll('.mobile-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.className = 'fa-solid fa-bars text-2xl';
+                    });
+                });
+            }
+
+            // 3. REVEAL ON SCROLL ANIMATIONS (INTERSECTION OBSERVER)
+            const revealElements = document.querySelectorAll('.reveal-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // 4. GUIA INTERATIVO DE MATERIAIS (DADOS E TROCA DE ABAS)
+            const materiaisData = {
+                pla: {
+                    titulo: "PLA (Polímero Biodegradável / Decorativo)",
+                    corBadge: "bg-emerald-100 text-emerald-800 border-emerald-300",
+                    sensacao: "Rígido com superfície limpa e lisa",
+                    descricao: "É o material mais popular e versátil da impressão 3D. Possui acabamento impecável com grande riqueza de detalhes e ampla variedade de cores.",
+                    resistencia: 70,
+                    flexibilidade: 20,
+                    acabamento: 95,
+                    usos: ["Troféus e Medalhas", "Brinquedos e Articulados", "Miniaturas e Maquetes", "Itens Decorativos"]
+                },
+                petg: {
+                    titulo: "PETG (Polímero de Alta Tenacidade)",
+                    corBadge: "bg-blue-100 text-blue-800 border-blue-300",
+                    sensacao: "Resistente a quedas e ao uso diário",
+                    descricao: "Combina a facilidade visual do PLA com a durabilidade mecânica do ABS. Ótima resistência ao impacto, umidade e raios solares.",
+                    resistencia: 88,
+                    flexibilidade: 45,
+                    acabamento: 85,
+                    usos: ["Chaveiros em Lote", "Brindes Corporativos", "Organizadores", "Peças de Uso Diário"]
+                },
+                abs: {
+                    titulo: "ABS (Termoplástico Técnico Durável)",
+                    corBadge: "bg-red-100 text-red-800 border-red-300",
+                    sensacao: "Rígido e tolerante a temperaturas mais altas",
+                    descricao: "Material consagrado em componentes técnicos. Possui maior resistência térmica e mecânica, sendo ideal para peças funcionais.",
+                    resistencia: 92,
+                    flexibilidade: 30,
+                    acabamento: 80,
+                    usos: ["Peças de Reposição", "Engrenagens e Suportes", "Invólucros Protegidos", "Componentes Mecânicos"]
+                },
+                tpu: {
+                    titulo: "TPU (Elastômero Flexível Emborrachado)",
+                    corBadge: "bg-purple-100 text-purple-800 border-purple-300",
+                    sensacao: "Flexível e totalmente dobrável",
+                    descricao: "Plástico especial com propriedade emborrachada. Absorve impactos e pode ser deformado sem quebrar, retornando à sua forma original.",
+                    resistencia: 95,
+                    flexibilidade: 98,
+                    acabamento: 75,
+                    usos: ["Capas e Proteções", "Gaxetas e Vedações", "Pneus para Minimodelo", "Amortecedores"]
+                }
+            };
+
+            window.mudarAbaMaterial = function(matKey) {
+                const data = materiaisData[matKey];
+                if (!data) return;
+
+                // Atualizar botões
+                document.querySelectorAll('.mat-tab-btn').forEach(btn => {
+                    btn.className = 'mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-slate-600 hover:text-navy';
+                });
+                const activeBtn = document.getElementById(`tab-btn-${matKey}`);
+                if (activeBtn) {
+                    activeBtn.className = 'mat-tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-white text-navy shadow-sm';
+                }
+
+                // Renderizar Card
+                const card = document.getElementById('material-card-content');
+                card.innerHTML = `
+                    <div class="grid md:grid-cols-12 gap-6 items-center">
+                        <div class="md:col-span-7 space-y-4">
+                            <span class="inline-block px-3 py-1 rounded-md text-xs font-bold border ${data.corBadge}">
+                                Touch: ${data.sensacao}
+                            </span>
+                            <h3 class="text-xl font-black text-navy">${data.titulo}</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                                ${data.descricao}
+                            </p>
+                            <div class="pt-2">
+                                <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-2">Aplicações Recomendadas:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${data.usos.map(u => `<span class="bg-slate-100 text-navy font-semibold text-xs px-3 py-1 rounded-lg border border-slate-200"><i class="fa-solid fa-check text-orange mr-1"></i> ${u}</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                            <h4 class="text-xs font-bold text-navy uppercase tracking-wider mb-3">Especificações Visuais:</h4>
+                            
+                            <div>
+                                <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                    <span>Resistência Mecânica</span>
+                                    <span>${data.resistencia}%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="progress-bar-fill bg-orange h-full rounded-full" style="--target-width: ${data.resistencia}%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                    <span>Flexibilidade</span>
+                                    <span>${data.flexibilidade}%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="progress-bar-fill bg-navy h-full rounded-full" style="--target-width: ${data.flexibilidade}%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                                    <span>Riqueza de Detalhes</span>
+                                    <span>${data.acabamento}%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="progress-bar-fill bg-emerald-600 h-full rounded-full" style="--target-width: ${data.acabamento}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Re-trigger scroll observer fill
+                setTimeout(() => {
+                    const materialSection = document.getElementById('materiais');
+                    if (materialSection) materialSection.classList.add('reveal-visible');
+                }, 50);
+            };
+
+            mudarAbaMaterial('pla');
+
+            // 5. SIMULADOR WHATSAPP COM CHIPS E MENSAGEM DINÂMICA
+            let simData = {
+                type: 'Troféu ou Premiação',
+                qty: '1 a 5 unidades',
+                file: 'Tenho foto de referência'
+            };
+
+            window.setChip = function(category, value) {
+                simData[category] = value;
+
+                // Atualizar visual dos chips da categoria
+                const group = document.getElementById(`chip-${category}-group`);
+                if (group) {
+                    group.querySelectorAll(`button`).forEach(btn => {
+                        if (btn.textContent.trim().includes(value) || btn.getAttribute('onclick').includes(value)) {
+                            btn.className = category === 'file' 
+                                ? 'chip-file py-2 px-2.5 rounded-xl border text-[11px] font-semibold text-center transition-all bg-orange text-white border-orange shadow-sm'
+                                : (category === 'qty'
+                                    ? 'chip-qty py-2 px-3 rounded-xl border text-xs font-semibold text-center transition-all bg-orange text-white border-orange shadow-sm'
+                                    : 'chip-type py-2.5 px-3 rounded-xl border text-xs font-semibold text-left transition-all bg-orange text-white border-orange shadow-sm');
+                        } else {
+                            btn.className = category === 'file'
+                                ? 'chip-file py-2 px-2.5 rounded-xl border border-white/20 text-[11px] font-semibold text-center transition-all hover:bg-white/10 text-slate-300'
+                                : (category === 'qty'
+                                    ? 'chip-qty py-2 px-3 rounded-xl border border-white/20 text-xs font-semibold text-center transition-all hover:bg-white/10 text-slate-300'
+                                    : 'chip-type py-2.5 px-3 rounded-xl border border-white/20 text-xs font-semibold text-left transition-all hover:bg-white/10 text-slate-300');
+                        }
+                    });
+                }
+
+                atualizarPreviewMensagem();
+            };
+
+            const notesInput = document.getElementById('sim-notes-input');
+            if (notesInput) {
+                notesInput.addEventListener('input', atualizarPreviewMensagem);
+            }
+
+            function gerarTextoMensagem() {
+                const notesVal = notesInput ? notesInput.value.trim() : '';
+
+                let msg = `*Olá! Gostaria de um orçamento na Ao Cubo 3D:*\n\n`;
+                msg += `📌 *Item:* ${simData.type}\n`;
+                msg += `📦 *Quantidade:* ${simData.qty}\n`;
+                msg += `📁 *Imagem/Arquivo:* ${simData.file}\n`;
+                if (notesVal) {
+                    msg += `📝 *Detalhes:* ${notesVal}\n`;
+                }
+                msg += `\nPodem me orientar com a cotação?`;
+                return msg;
+            }
+
+            function atualizarPreviewMensagem() {
+                const previewBox = document.getElementById('sim-preview-box');
+                if (previewBox) {
+                    previewBox.textContent = gerarTextoMensagem();
+                }
+            }
+
+            atualizarPreviewMensagem();
+
+            // SUBMIT WHATSAPP
+            const submitBtn = document.getElementById('sim-submit-btn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    const msg = encodeURIComponent(gerarTextoMensagem());
+                    const phone = "5511999999999";
+                    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+                });
+            }
+
+            // COPY MENSAGEM
+            const copyBtn = document.getElementById('sim-copy-btn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    const textToCopy = gerarTextoMensagem();
+                    
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = textToCopy;
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        mostrarToast("Mensagem copiada para a área de transferência!");
+                    } catch (err) {
+                        mostrarToast("Erro ao copiar texto. Tente selecionar manualmente.");
+                    }
+                    
+                    document.body.removeChild(tempTextarea);
+                });
+            }
+
+            function mostrarToast(mensagem) {
+                const toast = document.getElementById('toast');
+                const toastMsg = document.getElementById('toast-message');
+                if (toast && toastMsg) {
+                    toastMsg.textContent = mensagem;
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 3000);
+                }
+            }
+
+            window.selecionarEIrParaSimulador = function(categoria) {
+                setChip('type', categoria);
+                const simEl = document.getElementById('simulador');
+                if (simEl) {
+                    simEl.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+
+            // 6. ACCORDION FAQ SUAVE
+            window.toggleFaq = function(button) {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                const isOpen = answer.classList.contains('open');
+
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.faq font-bold i, #faq button i').forEach(i => i.className = 'fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300');
+
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    icon.className = 'fa-solid fa-chevron-up text-orange text-xs transition-transform duration-300';
+                }
+            };
+
+        });
+    </script>
+
+</body>
+</html>
