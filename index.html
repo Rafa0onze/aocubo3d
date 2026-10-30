@@ -717,7 +717,7 @@
                     
                     <!-- FAQ 1: SOBRE A TEXTURA DE CAMADAS (OBRIGATÓRIA) -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-100">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Como é o acabamento de uma peça impressa em 3D?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
@@ -728,7 +728,7 @@
 
                     <!-- FAQ 2 -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-200">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Preciso ter um arquivo 3D pronto para fazer orçamento?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
@@ -739,7 +739,7 @@
 
                     <!-- FAQ 3 -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-300">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Existe quantidade mínima por pedido?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
@@ -750,7 +750,7 @@
 
                     <!-- FAQ 4 -->
                     <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden reveal-item delay-400">
-                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full text-left p-5 font-bold text-navy text-sm sm:text-base flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange hover:text-orange transition-colors">
                             <span>Como funciona a retirada ou envio local?</span>
                             <i class="fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300"></i>
                         </button>
@@ -852,6 +852,8 @@
                 document.querySelectorAll('.mobile-link').forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.add('hidden');
+                        mobileBtn.setAttribute('aria-expanded', 'false');
+                        mobileBtn.setAttribute('aria-label', 'Abrir menu');
                         menuIcon.className = 'fa-solid fa-bars text-2xl';
                     });
                 });
@@ -932,7 +934,7 @@
                     <div class="grid md:grid-cols-12 gap-6 items-center">
                         <div class="md:col-span-7 space-y-4">
                             <span class="inline-block px-3 py-1 rounded-md text-xs font-bold border ${data.corBadge}">
-                                Touch: ${data.sensacao}
+                                Ao toque: ${data.sensacao}
                             </span>
                             <h3 class="text-xl font-black text-navy">${data.titulo}</h3>
                             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
@@ -1108,6 +1110,7 @@
                 const isOpen = answer.classList.contains('open');
 
                 document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('#faq button[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
                 document.querySelectorAll('.faq font-bold i, #faq button i').forEach(i => i.className = 'fa-solid fa-chevron-down text-orange text-xs transition-transform duration-300');
 
                 if (!isOpen) {
